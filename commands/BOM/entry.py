@@ -1,4 +1,5 @@
 import traceback
+import codecs
 
 import adsk.core
 import adsk.fusion
@@ -193,7 +194,7 @@ def create_bom(inputs):
         # Show file save dialog
         dlgResult = fileDlg.showSave()
         if dlgResult == adsk.core.DialogResults.DialogOK:
-            with open(fileDlg.filename, "w") as f:
+            with open(fileDlg.filename, "w", encoding='utf-8-sig') as f:
                 f.write(msg)
         else:
             return
